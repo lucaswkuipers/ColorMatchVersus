@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		EC27004326E4751B00E9908F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC27004226E4751B00E9908F /* AppDelegate.swift */; };
 		EC27004526E4751B00E9908F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC27004426E4751B00E9908F /* SceneDelegate.swift */; };
-		EC27004726E4751B00E9908F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC27004626E4751B00E9908F /* ViewController.swift */; };
-		EC27004A26E4751B00E9908F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC27004826E4751B00E9908F /* Main.storyboard */; };
 		EC27004C26E4751C00E9908F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC27004B26E4751C00E9908F /* Assets.xcassets */; };
 		EC27004F26E4751C00E9908F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC27004D26E4751C00E9908F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -19,8 +17,6 @@
 		EC27003F26E4751B00E9908F /* ColorMatchVersus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorMatchVersus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC27004226E4751B00E9908F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC27004426E4751B00E9908F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EC27004626E4751B00E9908F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EC27004926E4751B00E9908F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC27004B26E4751C00E9908F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC27004E26E4751C00E9908F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC27005026E4751C00E9908F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,8 +54,6 @@
 			children = (
 				EC27004226E4751B00E9908F /* AppDelegate.swift */,
 				EC27004426E4751B00E9908F /* SceneDelegate.swift */,
-				EC27004626E4751B00E9908F /* ViewController.swift */,
-				EC27004826E4751B00E9908F /* Main.storyboard */,
 				EC27004B26E4751C00E9908F /* Assets.xcassets */,
 				EC27004D26E4751C00E9908F /* LaunchScreen.storyboard */,
 				EC27005026E4751C00E9908F /* Info.plist */,
@@ -126,7 +120,6 @@
 			files = (
 				EC27004F26E4751C00E9908F /* LaunchScreen.storyboard in Resources */,
 				EC27004C26E4751C00E9908F /* Assets.xcassets in Resources */,
-				EC27004A26E4751B00E9908F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +130,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC27004726E4751B00E9908F /* ViewController.swift in Sources */,
 				EC27004326E4751B00E9908F /* AppDelegate.swift in Sources */,
 				EC27004526E4751B00E9908F /* SceneDelegate.swift in Sources */,
 			);
@@ -146,14 +138,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		EC27004826E4751B00E9908F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EC27004926E4751B00E9908F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EC27004D26E4751C00E9908F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -296,7 +280,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lucaswkuipers.ColorMatchVersus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -315,7 +299,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lucaswkuipers.ColorMatchVersus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
