@@ -4,4 +4,4 @@ Two player versus mini-game. Answer correctly faster to conquer screen space and
 Answer correctly if the text on the left card describes the color on the right card.
 
 A correct answer will push the boundaries of your zone one unit up (shrinking your adversary's). 
-A wrong answer will shrink your own zone one unit.
+Careful with your mistakes! A wrong answer will shrink your own zone one unit.
