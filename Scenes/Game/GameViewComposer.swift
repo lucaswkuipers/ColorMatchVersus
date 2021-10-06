@@ -9,7 +9,6 @@ struct GameViewComposer {
         view.delegate = adapter
         let viewController = GameViewController(adapter, with: view)
 
-
         return viewController
     }
 }
