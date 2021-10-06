@@ -1,14 +1,22 @@
 import UIKit
 
+protocol GameViewControllerDelegate: AnyObject {
+    func didLoadView()
+}
+
 final class GameViewController: UIViewController {
 
-    init(with view: GameView) {
+    let delegate: GameViewControllerDelegate
+
+    init(_ delegate: GameViewControllerDelegate, with view: GameView) {
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
         self.view = view
-        
+        delegate.didLoadView()
     }
 
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        fatalError()
+//        super.init(coder: coder)
     }
 }
