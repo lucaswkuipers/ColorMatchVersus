@@ -4,18 +4,7 @@ import UIKit
 final class GameViewAdapter {
     let colorsDictionary: ColorDictionary = ["red": .systemRed,
                                              "green": .systemGreen,
-                                             "blue": .systemBlue,
-//                                             "yellow": .systemYellow,
-//                                             "purple": .systemPurple,
-//                                             "orange": .systemOrange,
-//                                             "pink": .systemPink,
-//                                             "brown": .systemBrown,
-//                                             "black": .black,
-//                                             "gray": .systemGray,
-//                                             "mint": .systemMint,
-//                                             "cyan": .systemCyan,
-//                                             "teal": .systemTeal
-    ]
+                                             "blue": .systemBlue]
 
     var view: GameView?
     var questionGenerator = QuestionGenerator()
