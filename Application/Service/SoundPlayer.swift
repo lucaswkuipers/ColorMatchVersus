@@ -1,6 +1,6 @@
 import AVFoundation
 
-class SoundPlayer: NSObject, AVAudioPlayerDelegate {
+final class SoundPlayer: NSObject, AVAudioPlayerDelegate {
     static var shared: SoundPlayer = {
         let instance = SoundPlayer()
         return instance

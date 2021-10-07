@@ -1,7 +1,7 @@
 import UIKit
 
 protocol PlayerViewDelegate {
-    func didPlayerAnswer(isTopPlayer: Bool, answer: String)
+    func didPlayerAnswer(isTopPlayer: Bool, isAnswerYes: Bool)
 }
 
 final class PlayerView: UIView {
@@ -90,10 +90,10 @@ final class PlayerView: UIView {
     }
 
     @objc private func didTapYesAnswerButton() {
-        delegate?.didPlayerAnswer(isTopPlayer: isTopPlayer, answer: "YES")
+        delegate?.didPlayerAnswer(isTopPlayer: isTopPlayer, isAnswerYes: true)
     }
 
     @objc private func didTapNoAnswerButton() {
-        delegate?.didPlayerAnswer(isTopPlayer: isTopPlayer, answer: "NO")
+        delegate?.didPlayerAnswer(isTopPlayer: isTopPlayer, isAnswerYes: false)
     }
 }

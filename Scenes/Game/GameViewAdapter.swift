@@ -1,5 +1,4 @@
 import LogicKit
-import UIKit
 
 final class GameViewAdapter {
     let soundManager = SoundPlayer.shared
@@ -28,39 +27,46 @@ final class GameViewAdapter {
     }
 
     private func setQuestionsToView() {
+        setQuestionToTopPlayerView()
+        setQuestionToBottomPlayerView()
+    }
+
+    private func setQuestionToTopPlayerView() {
         guard let view = view else { return }
 
         guard let topPlayerWrittenCardText = topPlayerQuestion?.writtenPair.text else { return }
         guard let topPlayerWrittenCardColor = topPlayerQuestion?.writtenPair.color else { return }
         guard let topPlayerColoredCardText = topPlayerQuestion?.meaningPair.text else { return }
         guard let topPlayerColoredCardColor = topPlayerQuestion?.meaningPair.color else { return }
+
+        view.setupTopPlayerData(topPlayerWrittenCardText: topPlayerWrittenCardText,
+                        topPlayerWrittenCardColor: topPlayerWrittenCardColor,
+                        topPlayerColoredCardText: topPlayerColoredCardText,
+                        topPlayerColoredCardColor: topPlayerColoredCardColor)
+    }
+
+    private func setQuestionToBottomPlayerView() {
+        guard let view = view else { return }
+
         guard let bottomPlayerWrittenCardText = bottomPlayerQuestion?.writtenPair.text else { return }
         guard let bottomPlayerWrittenCardColor = bottomPlayerQuestion?.writtenPair.color else { return }
         guard let bottomPlayerColoredCardText = bottomPlayerQuestion?.meaningPair.text else { return }
         guard let bottomPlayerColoredCardColor = bottomPlayerQuestion?.meaningPair.color else { return }
 
-        view.setupData(topPlayerWrittenCardText: topPlayerWrittenCardText,
-                        topPlayerWrittenCardColor: topPlayerWrittenCardColor,
-                        topPlayerColoredCardText: topPlayerColoredCardText,
-                        topPlayerColoredCardColor: topPlayerColoredCardColor,
-                        bottomPlayerWrittenCardText: bottomPlayerWrittenCardText,
-                        bottomPlayerWrittenCardColor: bottomPlayerWrittenCardColor,
-                        bottomPlayerColoredCardText: bottomPlayerColoredCardText,
-                        bottomPlayerColoredCardColor: bottomPlayerColoredCardColor)
+        view.setupBottomPlayerData(bottomPlayerWrittenCardText: bottomPlayerWrittenCardText,
+                                   bottomPlayerWrittenCardColor: bottomPlayerWrittenCardColor,
+                                   bottomPlayerColoredCardText: bottomPlayerColoredCardText,
+                                   bottomPlayerColoredCardColor: bottomPlayerColoredCardColor)
     }
 
-    private func evaluateTopPlayerAnswer(_ answer: String) {
-        let isPlayerAnswerYes = answer == "YES"
-        print("Top player answer is: \(answer) so, is isPlayerAnswerYes: \(isPlayerAnswerYes)")
 
+    private func evaluateTopPlayerAnswer(_ isPlayerAnswerYes: Bool) {
         guard let isCorrectAnswerYes = topPlayerQuestion?.isAnswerYes else { return }
 
         if isPlayerAnswerYes == isCorrectAnswerYes {
-            print("GREAT! Top player answered correctly :D. Answer given was: \(isPlayerAnswerYes) when actual answer was: \(isCorrectAnswerYes)")
             didTopPlayerAnswerCorrectly()
         } else {
             didTopPlayerAnswerIncorrectly()
-            print("SORRY! Top player answer incorrectly :(. Answer given was: \(isPlayerAnswerYes) when actual answer was: \(isCorrectAnswerYes)")
         }
     }
 
@@ -74,18 +80,13 @@ final class GameViewAdapter {
         view?.increaseBackgroundBottomViewHeight()
     }
 
-    private func evaluateBottomPlayerAnswer(_ answer: String) {
-        let isPlayerAnswerYes = answer == "YES"
-        print("Bottom player answer is: \(answer) so, is isPlayerAnswerYes: \(isPlayerAnswerYes)")
-
+    private func evaluateBottomPlayerAnswer(_ isPlayerAnswerYes: Bool) {
         guard let isCorrectAnswerYes = bottomPlayerQuestion?.isAnswerYes else { return }
 
         if isPlayerAnswerYes == isCorrectAnswerYes {
-            print("GREAT! Bottom player answered correctly :D. Answer given was: \(isPlayerAnswerYes) when actual answer was: \(isCorrectAnswerYes)")
             didBottomPlayerAnswerCorrectly()
         } else {
             didBottomPlayerAnswerIncorrectly()
-            print("SORRY! Bottom player answer incorrectly :(. Answer given was: \(isPlayerAnswerYes) when actual answer was: \(isCorrectAnswerYes)")
         }
     }
 
@@ -108,15 +109,15 @@ extension GameViewAdapter: GameViewControllerDelegate {
 }
 
 extension GameViewAdapter: GameViewDelegate {
-    func didTopPlayerAnswer(_ answer: String) {
-        evaluateTopPlayerAnswer(answer)
+    func didTopPlayerAnswer(_ isAnswerYes: Bool) {
+        evaluateTopPlayerAnswer(isAnswerYes)
         generateTopPlayerQuestion()
-        setQuestionsToView()
+        setQuestionToTopPlayerView()
     }
 
-    func didBottomPlayerAnswer(_ answer: String) {
-        evaluateBottomPlayerAnswer(answer)
+    func didBottomPlayerAnswer(_ isAnswerYes: Bool) {
+        evaluateBottomPlayerAnswer(isAnswerYes)
         generateBottomPlayerQuestion()
-        setQuestionsToView()
+        setQuestionToBottomPlayerView()
     }
 }

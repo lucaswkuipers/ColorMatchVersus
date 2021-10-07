@@ -1,6 +1,8 @@
 import UIKit
 
 final class BackgroundView: UIView {
+    private let heightChangeAmount = 0.05
+    private let half = 0.5
     private var topBackgroundHeightPercentage: CGFloat = 0.5
     private var topBackgroundHeightConstraint = NSLayoutConstraint()
 
@@ -38,22 +40,20 @@ final class BackgroundView: UIView {
         updateHeights()
     }
 
-    func increaseTopViewHeight(by amount: CGFloat = 0.03) {
-        topBackgroundHeightPercentage += amount
+    func increaseTopViewHeight() {
+        topBackgroundHeightPercentage += heightChangeAmount
 
         if topBackgroundHeightPercentage >= 1 {
-            SoundPlayer.shared.play(sound: .roundWon)
             resetHeights()
         } else {
             layoutSubviews()
         }
     }
 
-    func decreaseTopViewHeight(by amount: CGFloat = 0.03) {
-        topBackgroundHeightPercentage -= amount
+    func decreaseTopViewHeight() {
+        topBackgroundHeightPercentage -= heightChangeAmount
 
         if topBackgroundHeightPercentage <= 0 {
-            SoundPlayer.shared.play(sound: .roundWon)
             resetHeights()
         } else {
             layoutSubviews()
@@ -61,7 +61,8 @@ final class BackgroundView: UIView {
     }
 
     private func resetHeights() {
-        topBackgroundHeightPercentage = 0.5
+        SoundPlayer.shared.play(sound: .roundWon)
+        topBackgroundHeightPercentage = half
         layoutSubviews()
     }
 

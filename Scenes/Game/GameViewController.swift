@@ -6,7 +6,7 @@ protocol GameViewControllerDelegate: AnyObject {
 
 final class GameViewController: UIViewController {
 
-    let delegate: GameViewControllerDelegate
+    var delegate: GameViewControllerDelegate
 
     init(_ delegate: GameViewControllerDelegate, with view: GameView) {
         self.delegate = delegate

@@ -1,8 +1,8 @@
 import UIKit
 
 protocol GameViewDelegate: AnyObject {
-    func didTopPlayerAnswer(_ answer: String)
-    func didBottomPlayerAnswer(_ answer: String)
+    func didTopPlayerAnswer(_ isAnswerYes: Bool)
+    func didBottomPlayerAnswer(_ isAnswerYes: Bool)
 }
 
 final class GameView: UIView {
@@ -33,18 +33,20 @@ final class GameView: UIView {
         super.init(coder: coder)
     }
 
-    func setupData(topPlayerWrittenCardText: String,
-                   topPlayerWrittenCardColor: UIColor,
-                   topPlayerColoredCardText: String,
-                   topPlayerColoredCardColor: UIColor,
-                   bottomPlayerWrittenCardText: String,
-                   bottomPlayerWrittenCardColor: UIColor,
-                   bottomPlayerColoredCardText: String,
-                   bottomPlayerColoredCardColor: UIColor) {
+    func setupTopPlayerData(topPlayerWrittenCardText: String,
+                            topPlayerWrittenCardColor: UIColor,
+                            topPlayerColoredCardText: String,
+                            topPlayerColoredCardColor: UIColor) {
         topPlayerView.setupData(writtenCardText: topPlayerWrittenCardText,
                                 writtenCardColor: topPlayerWrittenCardColor,
                                 coloredCardText: topPlayerColoredCardText,
                                 coloredCardColor: topPlayerColoredCardColor)
+    }
+
+    func setupBottomPlayerData(bottomPlayerWrittenCardText: String,
+                               bottomPlayerWrittenCardColor: UIColor,
+                               bottomPlayerColoredCardText: String,
+                               bottomPlayerColoredCardColor: UIColor) {
         bottomPlayerView.setupData(writtenCardText: bottomPlayerWrittenCardText,
                                    writtenCardColor: bottomPlayerWrittenCardColor,
                                    coloredCardText: bottomPlayerColoredCardText,
@@ -77,11 +79,11 @@ final class GameView: UIView {
 }
 
 extension GameView: PlayerViewDelegate {
-    func didPlayerAnswer(isTopPlayer: Bool, answer: String) {
+    func didPlayerAnswer(isTopPlayer: Bool, isAnswerYes: Bool) {
         if isTopPlayer {
-            delegate?.didTopPlayerAnswer(answer)
+            delegate?.didTopPlayerAnswer(isAnswerYes)
         } else {
-            delegate?.didBottomPlayerAnswer(answer)
+            delegate?.didBottomPlayerAnswer(isAnswerYes)
         }
     }
 }
