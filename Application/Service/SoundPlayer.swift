@@ -19,8 +19,8 @@ final class SoundPlayer: NSObject, AVAudioPlayerDelegate {
         }
     }
 
-    var players: [URL: AVAudioPlayer] = [:]
-    var temporaryPlayers: [AVAudioPlayer] = []
+    private var players: [URL: AVAudioPlayer] = [:]
+    private var temporaryPlayers: [AVAudioPlayer] = []
 
     private override init() { }
 
