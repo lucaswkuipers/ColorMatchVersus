@@ -1,13 +1,13 @@
 import UIKit
 
-protocol PlayerViewDelegate {
+protocol PlayerViewDelegate: AnyObject {
     func didPlayerAnswer(isTopPlayer: Bool, isAnswerYes: Bool)
 }
 
 final class PlayerView: UIView {
+    weak var delegate: PlayerViewDelegate?
 
-    var delegate: PlayerViewDelegate?
-    let isTopPlayer: Bool
+    private let isTopPlayer: Bool
 
     private let mainStackView: UIStackView = {
         let stack = UIStackView()

@@ -5,8 +5,7 @@ protocol GameViewControllerDelegate: AnyObject {
 }
 
 final class GameViewController: UIViewController {
-
-    var delegate: GameViewControllerDelegate
+    let delegate: GameViewControllerDelegate
 
     init(_ delegate: GameViewControllerDelegate, with view: GameView) {
         self.delegate = delegate
@@ -17,6 +16,5 @@ final class GameViewController: UIViewController {
 
     required init?(coder: NSCoder) {
         fatalError()
-//        super.init(coder: coder)
     }
 }

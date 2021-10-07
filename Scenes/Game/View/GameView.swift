@@ -6,7 +6,6 @@ protocol GameViewDelegate: AnyObject {
 }
 
 final class GameView: UIView {
-
     weak var delegate: GameViewDelegate?
 
     private let backgroundView = BackgroundView()

@@ -1,10 +1,10 @@
 import UIKit
 
 final class BackgroundView: UIView {
-    private let heightChangeAmount = 0.05
-    private let half = 0.5
     private var topBackgroundHeightPercentage: CGFloat = 0.5
     private var topBackgroundHeightConstraint = NSLayoutConstraint()
+    private let heightChangeAmount = 0.05
+    private let half = 0.5
 
     private let stackView: UIStackView = {
         let stack = UIStackView()
