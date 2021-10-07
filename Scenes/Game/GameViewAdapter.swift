@@ -2,13 +2,13 @@ import LogicKit
 import UIKit
 
 final class GameViewAdapter {
+    let soundManager = SoundPlayer.sharedInstance
     let colorsDictionary: ColorDictionary = ["red": .systemRed,
                                              "green": .systemGreen,
                                              "blue": .systemBlue]
 
     var view: GameView?
     var questionGenerator = QuestionGenerator()
-
     var topPlayerQuestion: Question?
     var bottomPlayerQuestion: Question?
 
@@ -65,10 +65,12 @@ final class GameViewAdapter {
     }
 
     private func didTopPlayerAnswerCorrectly() {
+        soundManager.play(sound: .topPlayerCorrectAnswer)
         view?.increaseBackgroundTopViewHeight()
     }
 
     private func didTopPlayerAnswerIncorrectly() {
+        soundManager.play(sound: .topPlayerIncorrectAnswer)
         view?.increaseBackgroundBottomViewHeight()
     }
 
@@ -88,10 +90,12 @@ final class GameViewAdapter {
     }
 
     private func didBottomPlayerAnswerCorrectly() {
+        soundManager.play(sound: .bottomPlayerCorrectAnswer)
         view?.increaseBackgroundBottomViewHeight()
     }
 
     private func didBottomPlayerAnswerIncorrectly() {
+        soundManager.play(sound: .bottomPlayerIncorrectAnswer)
         view?.increaseBackgroundTopViewHeight()
     }
 }
