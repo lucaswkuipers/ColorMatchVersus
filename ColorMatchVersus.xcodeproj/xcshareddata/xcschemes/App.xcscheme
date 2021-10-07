@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EC27003E26E4751B00E9908F"
-               BuildableName = "App.app"
+               BuildableName = "ColorMatchVersus.app"
                BlueprintName = "ColorMatchVersus"
                ReferencedContainer = "container:ColorMatchVersus.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EC27003E26E4751B00E9908F"
-            BuildableName = "App.app"
+            BuildableName = "ColorMatchVersus.app"
             BlueprintName = "ColorMatchVersus"
             ReferencedContainer = "container:ColorMatchVersus.xcodeproj">
          </BuildableReference>
@@ -63,7 +63,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EC27003E26E4751B00E9908F"
-            BuildableName = "App.app"
+            BuildableName = "ColorMatchVersus.app"
             BlueprintName = "ColorMatchVersus"
             ReferencedContainer = "container:ColorMatchVersus.xcodeproj">
          </BuildableReference>
