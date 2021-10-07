@@ -23,6 +23,7 @@
 		EC27004F26E4751C00E9908F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC27004D26E4751C00E9908F /* LaunchScreen.storyboard */; };
 		EC27005726E47D3500E9908F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC27005626E47D3500E9908F /* GameViewController.swift */; };
 		EC27005926E47D8800E9908F /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC27005826E47D8800E9908F /* GameView.swift */; };
+		EC36534A270F25ED006435D4 /* round_won.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC365349270F25ED006435D4 /* round_won.mp3 */; };
 		EC6EE4B326FFF87100184B1F /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6EE4B226FFF87100184B1F /* UIView+Constraints.swift */; };
 		EC6EE4B52700100F00184B1F /* UIView+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6EE4B42700100F00184B1F /* UIView+Rotation.swift */; };
 		EC7D332E26FC2BC3005B3B25 /* GameViewComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D332D26FC2BC3005B3B25 /* GameViewComposer.swift */; };
@@ -50,6 +51,7 @@
 		EC27005026E4751C00E9908F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC27005626E47D3500E9908F /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		EC27005826E47D8800E9908F /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		EC365349270F25ED006435D4 /* round_won.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = round_won.mp3; sourceTree = "<group>"; };
 		EC6EE4B226FFF87100184B1F /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		EC6EE4B42700100F00184B1F /* UIView+Rotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Rotation.swift"; sourceTree = "<group>"; };
 		EC7D332D26FC2BC3005B3B25 /* GameViewComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewComposer.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 		EC0870C9270E44C500193CD0 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				EC365349270F25ED006435D4 /* round_won.mp3 */,
 				EC25DAF3270EAA1B00F3F751 /* empty_sound.mp3 */,
 				EC0870CC270E488300193CD0 /* bottom_player_correct_answer.mp3 */,
 				EC0870CB270E488300193CD0 /* bottom_player_incorrect_answer.mp3 */,
@@ -238,6 +241,7 @@
 				EC0870D0270E488300193CD0 /* bottom_player_correct_answer.mp3 in Resources */,
 				EC0870CE270E488300193CD0 /* top_player_correct_answer.mp3 in Resources */,
 				EC27004C26E4751C00E9908F /* Assets.xcassets in Resources */,
+				EC36534A270F25ED006435D4 /* round_won.mp3 in Resources */,
 				EC0870D1270E488300193CD0 /* top_player_incorrect_answer.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

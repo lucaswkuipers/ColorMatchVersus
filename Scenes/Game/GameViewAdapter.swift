@@ -2,7 +2,7 @@ import LogicKit
 import UIKit
 
 final class GameViewAdapter {
-    let soundManager = SoundPlayer.sharedInstance
+    let soundManager = SoundPlayer.shared
     let colorsDictionary: ColorDictionary = ["red": .systemRed,
                                              "green": .systemGreen,
                                              "blue": .systemBlue]

@@ -1,7 +1,6 @@
 import UIKit
 
 final class BackgroundView: UIView {
-
     private var topBackgroundHeightPercentage: CGFloat = 0.5
     private var topBackgroundHeightConstraint = NSLayoutConstraint()
 
@@ -43,6 +42,7 @@ final class BackgroundView: UIView {
         topBackgroundHeightPercentage += amount
 
         if topBackgroundHeightPercentage >= 1 {
+            SoundPlayer.shared.play(sound: .roundWon)
             resetHeights()
         } else {
             layoutSubviews()
@@ -53,6 +53,7 @@ final class BackgroundView: UIView {
         topBackgroundHeightPercentage -= amount
 
         if topBackgroundHeightPercentage <= 0 {
+            SoundPlayer.shared.play(sound: .roundWon)
             resetHeights()
         } else {
             layoutSubviews()

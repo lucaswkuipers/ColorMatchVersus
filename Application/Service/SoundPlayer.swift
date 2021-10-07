@@ -1,9 +1,10 @@
 import AVFoundation
 
 class SoundPlayer: NSObject, AVAudioPlayerDelegate {
-    static let sharedInstance = SoundPlayer()
-    var players: [URL: AVAudioPlayer] = [:]
-    var temporaryPlayers: [AVAudioPlayer] = []
+    static var shared: SoundPlayer = {
+        let instance = SoundPlayer()
+        return instance
+    }()
 
     enum Sound: String {
         case topPlayerCorrectAnswer = "top_player_correct_answer"
@@ -11,11 +12,16 @@ class SoundPlayer: NSObject, AVAudioPlayerDelegate {
         case bottomPlayerCorrectAnswer = "bottom_player_correct_answer"
         case bottomPlayerIncorrectAnswer = "bottom_player_incorrect_answer"
         case emptySound = "empty_sound"
+        case roundWon = "round_won"
 
         var fileName: String {
             return self.rawValue
         }
     }
+
+    var players: [URL: AVAudioPlayer] = [:]
+    var temporaryPlayers: [AVAudioPlayer] = []
+
     private override init() { }
 
     func play(sound: Sound) {
@@ -36,5 +42,11 @@ class SoundPlayer: NSObject, AVAudioPlayerDelegate {
             players[soundFileNameURL] = player
             player.play()
         }
+    }
+}
+
+extension SoundPlayer: NSCopying {
+    func copy(with zone: NSZone? = nil) -> Any {
+        return self
     }
 }
