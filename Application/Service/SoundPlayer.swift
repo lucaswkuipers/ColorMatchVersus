@@ -1,10 +1,10 @@
 import AVFoundation
 
 final class SoundPlayer: NSObject, AVAudioPlayerDelegate {
-    static var shared: SoundPlayer = {
-        let instance = SoundPlayer()
-        return instance
-    }()
+    static let shared = SoundPlayer()
+
+    private var players: [URL : AVAudioPlayer] = [:]
+    private var temporaryPlayers: [AVAudioPlayer] = []
 
     enum Sound: String {
         case topPlayerCorrectAnswer = "top_player_correct_answer"
@@ -19,28 +19,36 @@ final class SoundPlayer: NSObject, AVAudioPlayerDelegate {
         }
     }
 
-    private var players: [URL: AVAudioPlayer] = [:]
-    private var temporaryPlayers: [AVAudioPlayer] = []
-
-    private override init() { }
+    private override init() {}
 
     func play(sound: Sound) {
-        guard let soundFileNameURL = Bundle.main.url(forResource: sound.fileName, withExtension: "mp3") else { return }
+        let soundFileName = sound.fileName
+        guard let url = Bundle.main.url(forResource: soundFileName, withExtension: "mp3") else { return }
 
-        if let player = players[soundFileNameURL] {
+        if let player = players[url] {
             if !player.isPlaying {
+                player.prepareToPlay()
                 player.play()
             } else {
-                guard let temporaryPlayer = try? AVAudioPlayer(contentsOf: soundFileNameURL) else { return }
-                temporaryPlayer.delegate = self
-                temporaryPlayers.append(temporaryPlayer)
-                temporaryPlayer.prepareToPlay()
-                temporaryPlayer.play()
+                do {
+                    let temporaryPlayer = try AVAudioPlayer(contentsOf: url)
+                    temporaryPlayer.delegate = self
+                    temporaryPlayers.append(temporaryPlayer)
+                    temporaryPlayer.prepareToPlay()
+                    temporaryPlayer.play()
+                } catch let error {
+                    print(error.localizedDescription)
+                }
             }
         } else {
-            guard let player = try? AVAudioPlayer(contentsOf: soundFileNameURL) else { return }
-            players[soundFileNameURL] = player
-            player.play()
+            do {
+                let player = try AVAudioPlayer(contentsOf: url)
+                players[url] = player
+                player.prepareToPlay()
+                player.play()
+            } catch let error {
+                print(error.localizedDescription)
+            }
         }
     }
 }
